@@ -1,25 +1,25 @@
-const form = document.querySelector('.login-form');
+// const form = document.querySelector('.login-form');
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault(); // prevent page reload
+// form.addEventListener('submit', (event) => {
+//     event.preventDefault(); // prevent page reload
 
-const email = form.elements.email.value;
-const password = form.elements.password.value;
+// const email = form.elements.email.value;
+// const password = form.elements.password.value;
 
-if (!email || !password) {
-  alert('All fields must be filled in');
-  return;
-}
+// if (!email || !password) {
+//   alert('All fields must be filled in');
+//   return;
+// }
 
-const formData = {
-  email: email,
-  password: password
-};
+// const formData = {
+//   email: email,
+//   password: password
+// };
 
-console.log(formData);
+// console.log(formData);
 
-form.reset(); // clear form fields
-});
+// form.reset(); // clear form fields
+// });
 
 //-----------------------------------------------------------
 // Ten kod obsługuje zdarzenie wysłania formularza logowania. Po wciśnięciu przycisku "submit" na formularzu, kod wykonuje następujące czynności:
@@ -30,3 +30,13 @@ form.reset(); // clear form fields
 // Jeśli oba pola są wypełnione, tworzy obiekt formData zawierający email i password.
 // Wyświetla zawartość obiektu formData w konsoli.
 // Czyści pola formularza.
+
+const categories = document.getElementById('categories');
+const items = categories.querySelectorAll('li.item');
+console.log(`Number of categories: ${items.length}`);
+items.forEach((item) => {
+  const category = item.querySelector('h2').textContent;
+  const elements = item.querySelectorAll('li').length;
+  console.log(`Category: ${category}`);
+  console.log(`Elements: ${elements}`);
+});
