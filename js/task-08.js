@@ -31,12 +31,27 @@
 // Wyświetla zawartość obiektu formData w konsoli.
 // Czyści pola formularza.
 
-const categories = document.getElementById('categories');
-const items = categories.querySelectorAll('li.item');
-console.log(`Number of categories: ${items.length}`);
-items.forEach((item) => {
-  const category = item.querySelector('h2').textContent;
-  const elements = item.querySelectorAll('li').length;
-  console.log(`Category: ${category}`);
-  console.log(`Elements: ${elements}`);
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.login-form');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // prevent page reload
+
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+
+    if (!email || !password) {
+      alert('All fields must be filled in');
+      return;
+    }
+
+    const formData = {
+      email: email,
+      password: password
+    };
+
+    console.log(formData);
+
+    form.reset(); // clear form fields
+  });
 });
