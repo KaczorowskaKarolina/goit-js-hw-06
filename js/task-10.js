@@ -128,8 +128,16 @@ for (let i = 0; i < amount; i++) {
 
 function destroyBoxes() {
   const amount = Number(input.value);
-  if (amount <= createdBoxes.length) {
-    for (let i = createdBoxes.length - 1; i >= createdBoxes.length - amount; i--) {
+  const initialLength = createdBoxes.length;
+
+if (amount < initialLength) {
+    for (let i = initialLength - 1; i >= initialLength - amount; i--) {
+      const box = createdBoxes[i];
+      box.remove();
+      createdBoxes.splice(i, 1);
+    }
+  } else {
+    for (let i = initialLength - 1; i >= 0; i--) {
       const box = createdBoxes[i];
       box.remove();
       createdBoxes.splice(i, 1);
